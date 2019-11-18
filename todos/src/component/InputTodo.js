@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import 'bootstrap/dist/css/bootstrap.css';
+
 
 class InputTodo extends Component {
     constructor(props) {
@@ -14,18 +16,17 @@ class InputTodo extends Component {
     };
     render() {
         return (
-            <div style={{ paddingBottom: "20px" }}>
-                <input
-                    type="text"
-                    placeholder="Add items,,,"
-                    onChange={this.onChange}
-                />
-                <input
-                    type="button"
-                    value="Add"
-                    onClick={() => this.props.addItems(this.state.title)}
-                />
+
+            <div className="input-group mb-3">
+                <input type="text" className="form-control" onChange={this.onChange} placeholder="Add items,,," aria-label="Recipient's username" aria-describedby="button-addon2" />
+                <div className="input-group-append">
+                    <button className="btn btn-outline-success" type="button"
+                        onClick={() => this.props.addItems(this.state.title)} id="button-addon2">Add</button>
+                </div>
+
+
             </div>
+
         );
     }
 }
